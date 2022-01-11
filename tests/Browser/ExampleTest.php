@@ -29,4 +29,12 @@ class ExampleTest extends DuskTestCase
                 ->assertSee("You're logged in");
         });
     }
+
+    public function testConfigDetails()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/test')
+                ->assertSee("Cache Host: redis");
+        });
+    }
 }

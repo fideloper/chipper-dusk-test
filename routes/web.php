@@ -21,4 +21,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/test', function() {
+    $cache = config('cache.default');
+    $cache_host = config('database.redis.default.host');
+    $database = config('database.default');
+    $db_host = config('database.connections.mysql.host');
+    return <<<ECHO
+Cache: $cache<br>
+Cache Host: $cache_host<br>
+DB: $database<br>
+DB Host: $db_host<br>
+ECHO;
+
+});
+
 require __DIR__.'/auth.php';
