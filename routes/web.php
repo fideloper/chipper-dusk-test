@@ -26,11 +26,13 @@ Route::get('/test', function() {
     $cache_host = config('database.redis.default.host');
     $database = config('database.default');
     $db_host = config('database.connections.mysql.host');
+    $session = config('session.driver');
     return <<<ECHO
 Cache: $cache<br>
 Cache Host: $cache_host<br>
 DB: $database<br>
 DB Host: $db_host<br>
+Session: $session<br>
 ECHO;
 
 });
